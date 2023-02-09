@@ -1,0 +1,5 @@
+{
+  "name": "netsock-ping-pong",
+  "image": "erlang",
+  "forwardPorts": []
+}
