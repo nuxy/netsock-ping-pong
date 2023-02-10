@@ -1,6 +1,6 @@
-# netsock-ping-pong
+# netsock_ping_pong
 
-Ping Pong(ing) within a network using Erlang.
+Ping Pong(ing) within a network using Erlang/OTP.
 
 The idea is pretty simple.
 
