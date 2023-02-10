@@ -32,10 +32,10 @@ Start the program:
 
 ```text
 Eshell v13.1.4  (abort with ^G)
-1> netsock_ping_pong:test().
+1> netsock_ping_pong:main().
 ```
 
-Run the [CommonTest](https://www.erlang.org/doc/man/ct_run.html) suite:
+Run the [Common Test](https://www.erlang.org/doc/man/ct_run.html) suite:
 
     $ make test
 
