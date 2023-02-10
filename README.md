@@ -35,6 +35,14 @@ Eshell v13.1.4  (abort with ^G)
 1> netsock_ping_pong:test().
 ```
 
+Run the [CommonTest](https://www.erlang.org/doc/man/ct_run.html) suite:
+
+    $ make test
+
+Clean up build/test output:
+
+    $ make clean
+
 ## References
 
 - [gen_tcp - Interface to TCP/IP sockets](https://www.erlang.org/doc/man/gen_tcp.html)

@@ -1,2 +1,12 @@
 .vscode
 *.beam
+
+# Common Test output
+all_runs.html
+ct_default.css
+ct_log_cache
+ct_run*
+index.html
+jquery*
+suite*
+variables-ct*
