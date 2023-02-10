@@ -19,3 +19,22 @@ The idea is pretty simple.
 ## Launching in Remote-Containers
 
 In the VS Code _Command Palette_ choose "Open Folder in Container" which will launch the server in a Docker container allowing for realtime development and testing.
+
+## Developers
+
+### CLI options
+
+Compile package sources:
+
+    $ make build
+
+Start the program:
+
+```text
+Eshell v13.1.4  (abort with ^G)
+1> netsock_ping_pong:test().
+```
+
+## References
+
+- [gen_tcp - Interface to TCP/IP sockets](https://www.erlang.org/doc/man/gen_tcp.html)
