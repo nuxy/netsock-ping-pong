@@ -1,5 +1,5 @@
 -module(netsock_ping_pong_net).
--export([client/3, server/1]).
+-export([client/3, server/1, online/2]).
 
 % Send network client message.
 client(Hostname, Port, Action) ->
@@ -15,6 +15,15 @@ server(Port) ->
     ok = gen_tcp:close(Sock),
     ok = gen_tcp:close(LSock),
     Bin.
+
+% Check server is online.
+online(Hostname, Port) ->
+    Host = lists:concat([Hostname, ":", Port]),
+
+    case net_adm:ping(list_to_atom(Host)) of
+        pong -> true;
+        pang -> false
+    end.
 
 % Handle socket communication.
 do_recv(Sock, Bs) ->

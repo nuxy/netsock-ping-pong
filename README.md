@@ -46,3 +46,4 @@ Clean up build/test output:
 ## References
 
 - [gen_tcp - Interface to TCP/IP sockets](https://www.erlang.org/doc/man/gen_tcp.html)
+- [net_adm - Net administration routines](https://www.erlang.org/doc/man/net_adm.html)
