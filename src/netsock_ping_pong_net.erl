@@ -1,4 +1,4 @@
--module(socket).
+-module(netsock_ping_pong_net).
 -export([client/3, server/1]).
 
 % Send network client message.
@@ -9,7 +9,7 @@ client(Host, Port, Action) ->
 
 % Start server instance.
 server(Port) ->
-    {ok, LSock} = gen_tcp:listen(5678, [binary, {packet, 0}, {active, false}]),
+    {ok, LSock} = gen_tcp:listen(Port, [binary, {packet, 0}, {active, false}]),
     {ok, Sock} = gen_tcp:accept(LSock),
     {ok, Bin} = do_recv(Sock, []),
     ok = gen_tcp:close(Sock),
