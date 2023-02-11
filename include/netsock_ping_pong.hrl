@@ -1,2 +1,3 @@
 -define(TCP_PORT_MIN, 30000).
 -define(TCP_PORT_MAX, 30010).
+-define(DEBUG, false).
