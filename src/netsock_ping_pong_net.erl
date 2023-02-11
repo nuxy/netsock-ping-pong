@@ -2,8 +2,8 @@
 -export([client/3, server/1]).
 
 % Send network client message.
-client(Host, Port, Action) ->
-    {ok, Sock} = gen_tcp:connect(Host, Port, [binary, {packet, 0}]),
+client(Hostname, Port, Action) ->
+    {ok, Sock} = gen_tcp:connect(Hostname, Port, [binary, {packet, 0}]),
     ok = gen_tcp:send(Sock, Action),
     ok = gen_tcp:close(Sock).
 
