@@ -21,7 +21,7 @@ server(Port) ->
 
 % Check server is online.
 check_status(Host) ->
-    case net_adm:ping(list_to_atom(Host)) of
+    case net_adm:ping(Host) of
         pong -> ok;
         pang -> undefined
     end.
@@ -31,7 +31,7 @@ fetch_port(Hostname) ->
     Ports = lists:seq(?TCP_PORT_MIN, ?TCP_PORT_MAX),
 
     lists:foldl(fun(Port, A) ->
-        Host = lists:concat([Hostname, ":", Port]),
+        Host = list_to_atom(lists:concat([Hostname, ":", Port])),
 
         case check_status(Host) of
             ok -> lists:append([A, [Port]]);
