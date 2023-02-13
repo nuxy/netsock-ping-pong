@@ -1,5 +1,5 @@
 -module(netsock_ping_pong_net).
--export([client/3, server/1, online/2]).
+-export([client/3, server/1, check_status/1]).
 -include("include/netsock_ping_pong.hrl").
 
 % Send network client message.
@@ -20,12 +20,10 @@ server(Port) ->
     Bin.
 
 % Check server is online.
-online(Hostname, Port) ->
-    Host = lists:concat([Hostname, ":", Port]),
-
+check_status(Host) ->
     case net_adm:ping(list_to_atom(Host)) of
-        pong -> true;
-        pang -> false
+        pong -> ok;
+        pang -> undefined
     end.
 
 % Handle socket communication.
