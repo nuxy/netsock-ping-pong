@@ -1,5 +1,5 @@
 -module(netsock_ping_pong_net).
--export([client/3, server/1, check_status/1]).
+-export([client/3, server/1, check_status/1, fetch_port/1]).
 -include("include/netsock_ping_pong.hrl").
 
 % Send network client message.
@@ -25,6 +25,19 @@ check_status(Host) ->
         pong -> ok;
         pang -> undefined
     end.
+
+% Fetch active TCP port.
+fetch_port(Hostname) ->
+    Ports = lists:seq(?TCP_PORT_MIN, ?TCP_PORT_MAX),
+
+    lists:foldl(fun(Port, A) ->
+        Host = lists:concat([Hostname, ":", Port]),
+
+        case check_status(Host) of
+            ok -> lists:append([A, [Port]]);
+            undefined -> ok
+        end
+    end, [], Ports).
 
 % Handle socket communication.
 do_recv(Sock, Bs) ->

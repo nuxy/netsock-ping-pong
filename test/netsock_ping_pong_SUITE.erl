@@ -1,5 +1,5 @@
 -module(netsock_ping_pong_SUITE).
--export([all/0, load_package/1, check_status/1]).
+-export([all/0, load_package/1, check_status/1, fetch_port/1]).
 
 all() -> [load_package].
   
@@ -10,3 +10,6 @@ load_package(_Config) ->
 
 check_status(_Config) ->
     ok = netsock_ping_pong_net:check_status("localhost").
+
+fetch_port(_Config) ->
+    ok = netsock_ping_pong_net:fetch_port("localhost").
